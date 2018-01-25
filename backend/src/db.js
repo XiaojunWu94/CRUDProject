@@ -65,8 +65,8 @@ exports.setup = (done, initValues) => {
                     + 'sid INT NOT NULL,'
                     + 'cId INT NOT NULL,' 
                     + 'FOREIGN KEY (sId) REFERENCES Student(id) ON DELETE CASCADE,' 
-                    + 'FOREIGN KEY (cId) REFERENCES Course(cId)'
-                    //+ 'CONSTRAINT pId PRIMARY KEY (sId, cId)' 
+                    + 'FOREIGN KEY (cId) REFERENCES Course(cId),'
+                    + 'CONSTRAINT pId PRIMARY KEY (sId, cId)' 
                     + ')', function(err, result) {
                         if (err) {
                             throw err;

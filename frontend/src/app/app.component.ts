@@ -58,7 +58,6 @@ export class AppComponent {
     this.studentService.findStudentByName(name)
       .then(res => {
         this.classActiveResult = res.classActiveResult;
-        console.log(res.students);
         this.students = res.students;
       });
     this.searchForm.reset();  

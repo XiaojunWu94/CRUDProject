@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./db');
+const db = require('./src/db');
 const enableCORS = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
     res.header('Access-Control-Allow-Credentials',true)
@@ -40,10 +40,9 @@ db.connect(() => {
 const app = express();
 app.use(enableCORS);
 app.use(bodyParser.json());
-require('./student')(app);
+require('./src/student')(app);
 
 const port = process.env.PORT || 3000
 const server = app.listen(port, () => {
-  const addr = server.address();
-  console.log(`Server listening at http://${addr.address}:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 })
